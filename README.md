@@ -2,6 +2,8 @@
 ### AI-Powered Border Intelligence & Perimeter Security Platform
 **Smart India Hackathon (SIH) Problem Statement ID: 26187**
 
+[![SURAKSHA-NET CI/CD Pipeline](https://github.com/sarthakofficial25-alt/Sankalp-SIH/actions/workflows/ci.yml/badge.svg)](https://github.com/sarthakofficial25-alt/Sankalp-SIH/actions/workflows/ci.yml)
+
 ---
 
 ## 1. Project Overview
