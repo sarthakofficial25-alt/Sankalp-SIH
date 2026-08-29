@@ -8,11 +8,11 @@ export interface FaceRecognitionResult {
 }
 
 export interface FaceRecognizer {
-  recognizeFace(cropBuffer: Buffer | string): Promise<FaceRecognitionResult>;
+  recognizeFace(cropBuffer: Uint8Array | string): Promise<FaceRecognitionResult>;
 }
 
 export class MockFaceRecognizer implements FaceRecognizer {
-  async recognizeFace(cropBuffer: Buffer | string): Promise<FaceRecognitionResult> {
+  async recognizeFace(cropBuffer: Uint8Array | string): Promise<FaceRecognitionResult> {
     // Simulated FaceNet embedding vector comparison with thresholding
     return {
       status: 'MATCHED',

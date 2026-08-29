@@ -1,7 +1,7 @@
 import type { BoundingBox, Detection, VisualMatchStatus } from '../../shared/types';
 
 export interface PersonDetector {
-  detect(imageBuffer: Buffer | string): Promise<Array<{
+  detect(imageBuffer: Uint8Array | string): Promise<Array<{
     confidence: number;
     boundingBox: BoundingBox;
     className: string;
@@ -9,7 +9,7 @@ export interface PersonDetector {
 }
 
 export class MockPersonDetector implements PersonDetector {
-  async detect(imageBuffer: Buffer | string): Promise<Array<{
+  async detect(imageBuffer: Uint8Array | string): Promise<Array<{
     confidence: number;
     boundingBox: BoundingBox;
     className: string;

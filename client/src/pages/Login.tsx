@@ -80,7 +80,7 @@ export default function Login() {
             <div className="grid grid-cols-2 gap-2">
               <button
                 type="button"
-                onClick={() => handleQuickFill('COMMANDER', 'IND-CMD-001', 'Brig. Verma')}
+                onClick={() => handleQuickFill('COMMANDER', 'IND-CMD-001')}
                 className={`text-left p-1.5 rounded border text-[11px] font-mono transition ${role === 'COMMANDER' ? 'bg-primary/20 border-primary text-primary' : 'bg-background/40 border-border/40 hover:bg-background/80'}`}
               >
                 <div className="font-bold">Commander</div>
@@ -88,7 +88,7 @@ export default function Login() {
               </button>
               <button
                 type="button"
-                onClick={() => handleQuickFill('SECURITY_OFFICER', 'IND-OFF-042', 'Capt. Kumar')}
+                onClick={() => handleQuickFill('SECURITY_OFFICER', 'IND-OFF-042')}
                 className={`text-left p-1.5 rounded border text-[11px] font-mono transition ${role === 'SECURITY_OFFICER' ? 'bg-primary/20 border-primary text-primary' : 'bg-background/40 border-border/40 hover:bg-background/80'}`}
               >
                 <div className="font-bold">Security Officer</div>

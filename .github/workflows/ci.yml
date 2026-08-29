@@ -1,0 +1,131 @@
+name: SURAKSHA-NET CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  # ----------------------------------------------------
+  # 1. Code Quality, Linting & Type Safety
+  # ----------------------------------------------------
+  lint-and-typecheck:
+    name: Lint & Typecheck
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+          cache-dependency-path: |
+            client/package-lock.json
+            server/package-lock.json
+
+      - name: Install Client Dependencies
+        run: |
+          cd client
+          npm ci
+
+      - name: Install Server Dependencies
+        run: |
+          cd server
+          npm ci
+
+      - name: Run Linter (Oxlint)
+        run: |
+          cd client
+          npm run lint
+
+      - name: Typecheck Client (TypeScript)
+        run: |
+          cd client
+          npx tsc -b
+
+      - name: Typecheck Server (TypeScript)
+        run: |
+          cd server
+          npx tsc --noEmit
+
+  # ----------------------------------------------------
+  # 2. Automated Unit & Integration Tests
+  # ----------------------------------------------------
+  test:
+    name: Run Automated Test Suite
+    runs-on: ubuntu-latest
+    needs: lint-and-typecheck
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+          cache-dependency-path: |
+            client/package-lock.json
+
+      - name: Install Client Dependencies
+        run: |
+          cd client
+          npm ci
+
+      - name: Run Unit Tests (Vitest)
+        run: |
+          cd client
+          npm run test
+
+  # ----------------------------------------------------
+  # 3. Production Build Validation
+  # ----------------------------------------------------
+  build:
+    name: Production Build Verification
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+          cache-dependency-path: |
+            client/package-lock.json
+            server/package-lock.json
+
+      - name: Install All Dependencies
+        run: |
+          cd client && npm ci
+          cd ../server && npm ci
+
+      - name: Build Frontend Client (Vite Bundle)
+        run: |
+          cd client
+          npm run build
+
+      - name: Build Backend Server (TypeScript Transpile)
+        run: |
+          cd server
+          npm run build
+
+      - name: Upload Client Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: client-production-build
+          path: client/dist
+          retention-days: 7
+
+      - name: Upload Server Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: server-production-build
+          path: server/dist
+          retention-days: 7
