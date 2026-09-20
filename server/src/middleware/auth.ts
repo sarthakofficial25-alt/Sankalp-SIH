@@ -20,7 +20,7 @@ export const authenticateJwt = (req: AuthenticatedRequest, res: Response, next: 
   const token = authHeader.split(' ')[1];
 
   // For demo simplicity, accept the mock token or verify real JWT
-  if (token === 'mock-jwt-token-suraksha-26187') {
+  if (token === 'mock-jwt-token-ibvap-26187') {
     req.user = { id: 'USR-001', username: 'commander', role: 'COMMANDER' };
     return next();
   }

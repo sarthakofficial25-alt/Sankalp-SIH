@@ -10,17 +10,17 @@ interface AuthState {
 }
 
 export const useAuthStore = create<AuthState>((set) => ({
-  user: JSON.parse(localStorage.getItem('suraksha_user') || 'null'),
-  token: localStorage.getItem('suraksha_token'),
-  isAuthenticated: !!localStorage.getItem('suraksha_token'),
+  user: JSON.parse(localStorage.getItem('ibvap_user') || 'null'),
+  token: localStorage.getItem('ibvap_token'),
+  isAuthenticated: !!localStorage.getItem('ibvap_token'),
   login: (user, token) => {
-    localStorage.setItem('suraksha_user', JSON.stringify(user));
-    localStorage.setItem('suraksha_token', token);
+    localStorage.setItem('ibvap_user', JSON.stringify(user));
+    localStorage.setItem('ibvap_token', token);
     set({ user, token, isAuthenticated: true });
   },
   logout: () => {
-    localStorage.removeItem('suraksha_user');
-    localStorage.removeItem('suraksha_token');
+    localStorage.removeItem('ibvap_user');
+    localStorage.removeItem('ibvap_token');
     set({ user: null, token: null, isAuthenticated: false });
   },
 }));

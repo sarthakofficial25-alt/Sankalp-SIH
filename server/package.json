@@ -1,7 +1,7 @@
 {
-  "name": "suraksha-net-server",
+  "name": "ibvap-server",
   "version": "1.0.0",
-  "description": "SURAKSHA-NET Backend API Server",
+  "description": "IBVAP Backend API Server",
   "main": "dist/server.js",
   "scripts": {
     "dev": "tsx watch src/server.ts",

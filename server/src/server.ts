@@ -22,7 +22,7 @@ let auditLogs = [...mockAuditLogs];
 
 // Healthcheck
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'ONLINE', timestamp: new Date().toISOString(), platform: 'SURAKSHA-NET' });
+  res.json({ status: 'ONLINE', timestamp: new Date().toISOString(), platform: 'IBVAP' });
 });
 
 // Auth
@@ -34,7 +34,7 @@ app.post('/api/auth/login', (req, res) => {
 
   res.json({
     success: true,
-    token: 'mock-jwt-token-suraksha-26187',
+    token: 'mock-jwt-token-ibvap-26187',
     user: {
       id: 'USR-001',
       username,
@@ -143,5 +143,5 @@ app.get('/api/system/health', (req, res) => {
 app.use(errorHandler);
 
 app.listen(config.port, () => {
-  console.log(`[SURAKSHA-NET] Command Server active on port ${config.port} (${config.nodeEnv})`);
+  console.log(`[IBVAP] Command Server active on port ${config.port} (${config.nodeEnv})`);
 });

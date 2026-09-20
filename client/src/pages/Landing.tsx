@@ -17,10 +17,10 @@ export default function Landing() {
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-bold text-base tracking-wider text-foreground">SURAKSHA-NET</span>
+                <span className="font-bold text-base tracking-wider text-foreground">IBVAP</span>
                 <span className="text-[10px] bg-primary/20 text-primary border border-primary/40 px-1.5 py-0.5 rounded font-mono font-bold">PS-26187</span>
               </div>
-              <p className="text-[11px] text-muted-foreground tracking-tight">AI Border Intelligence & Surveillance Platform</p>
+              <p className="text-[11px] text-muted-foreground tracking-tight">Intelligent Border Video Analytics Platform</p>
             </div>
           </div>
 
@@ -183,7 +183,7 @@ export default function Landing() {
       <footer className="border-t border-border/30 bg-navy-900/60 py-8 px-6 text-center text-xs text-muted-foreground">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
-            <span className="font-semibold text-foreground">SURAKSHA-NET</span> — Prototype for Smart India Hackathon (SIH ID: 26187)
+            <span className="font-semibold text-foreground">IBVAP</span> — Prototype for Smart India Hackathon (SIH ID: 26187)
           </div>
           <div className="text-[11px] font-mono">
             CLASSIFICATION: RESTRICTED DEMO ENVIRONMENT

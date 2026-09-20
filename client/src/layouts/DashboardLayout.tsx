@@ -53,8 +53,8 @@ export default function DashboardLayout() {
           </div>
           {!sidebarCollapsed && (
             <div className="min-w-0">
-              <h1 className="text-sm font-bold text-foreground tracking-wide">SURAKSHA-NET</h1>
-              <p className="text-[10px] text-muted-foreground truncate">AI Border Intelligence</p>
+              <h1 className="text-sm font-bold text-foreground tracking-wide">IBVAP</h1>
+              <p className="text-[10px] text-muted-foreground truncate">Intelligent Border Video Analytics</p>
             </div>
           )}
         </div>
@@ -152,8 +152,8 @@ export default function DashboardLayout() {
                 <Menu className="w-5 h-5" />
               </button>
               <div className="hidden sm:block">
-                <span className="text-xs font-semibold text-primary tracking-wider">SURAKSHA-NET</span>
-                <span className="text-[10px] text-muted-foreground ml-2 tracking-wide">AI BORDER INTELLIGENCE SYSTEM</span>
+                <span className="text-xs font-semibold text-primary tracking-wider">IBVAP</span>
+                <span className="text-[10px] text-muted-foreground ml-2 tracking-wide uppercase">INTELLIGENT BORDER VIDEO ANALYTICS PLATFORM</span>
               </div>
             </div>
 

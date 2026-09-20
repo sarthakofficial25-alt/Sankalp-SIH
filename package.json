@@ -1,7 +1,7 @@
 {
-  "name": "suraksha-net",
+  "name": "ibvap",
   "version": "1.0.0",
-  "description": "AI-Powered Border Intelligence & Security Platform",
+  "description": "Intelligent Border Video Analytics Platform",
   "private": true,
   "scripts": {
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",

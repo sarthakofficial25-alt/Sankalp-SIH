@@ -6,7 +6,7 @@ import type { UserRole } from '../types';
 
 export default function Login() {
   const [serviceId, setServiceId] = useState('IND-CMD-001');
-  const [password, setPassword] = useState('suraksha2024');
+  const [password, setPassword] = useState('ibvap2024');
   const [role, setRole] = useState<UserRole>('COMMANDER');
   const [rememberDevice, setRememberDevice] = useState(true);
   const [error, setError] = useState('');
@@ -38,7 +38,7 @@ export default function Login() {
         lastLogin: new Date().toISOString(),
       };
 
-      login(user, 'mock-jwt-token-suraksha-26187');
+      login(user, 'mock-jwt-token-ibvap-26187');
       setIsLoading(false);
       navigate('/dashboard');
     }, 600);
@@ -47,7 +47,7 @@ export default function Login() {
   const handleQuickFill = (presetRole: UserRole, id: string) => {
     setRole(presetRole);
     setServiceId(id);
-    setPassword('suraksha2024');
+    setPassword('ibvap2024');
   };
 
   return (
@@ -67,7 +67,7 @@ export default function Login() {
             <div className="w-12 h-12 rounded-xl bg-primary/20 border border-primary/30 flex items-center justify-center mx-auto mb-3 shadow-[0_0_15px_rgba(59,130,246,0.25)]">
               <Shield className="w-6 h-6 text-primary" />
             </div>
-            <h1 className="text-xl font-bold text-foreground tracking-wide">SURAKSHA-NET</h1>
+            <h1 className="text-xl font-bold text-foreground tracking-wide">IBVAP</h1>
             <p className="text-xs text-muted-foreground font-mono mt-0.5">SECURE COMMAND ACCESS &bull; RESTRICTED</p>
           </div>
 

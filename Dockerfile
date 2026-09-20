@@ -1,4 +1,4 @@
-# Multi-stage Dockerfile for SURAKSHA-NET Full Stack Platform
+# Multi-stage Dockerfile for IBVAP Full Stack Platform
 
 # Stage 1: Build Client
 FROM node:20-alpine AS client-builder

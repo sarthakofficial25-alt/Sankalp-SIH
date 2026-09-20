@@ -1,5 +1,5 @@
 -- ============================================
--- SURAKSHA-NET PostgreSQL Schema
+-- IBVAP PostgreSQL Schema
 -- AI-Powered Border Security & Surveillance Platform
 -- SIH Problem Statement ID: 26187
 -- ============================================

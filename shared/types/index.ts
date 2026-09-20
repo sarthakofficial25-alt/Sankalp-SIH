@@ -1,5 +1,5 @@
 // ============================================
-// SURAKSHA-NET — Shared Type Definitions
+// IBVAP — Shared Type Definitions
 // ============================================
 
 // ---- Enums ----

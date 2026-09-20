@@ -1,14 +1,14 @@
-# SURAKSHA-NET (सुरक्षा-नेट)
-### AI-Powered Border Intelligence & Perimeter Security Platform
+# IBVAP
+### Intelligent Border Video Analytics Platform
 **Smart India Hackathon (SIH) Problem Statement ID: 26187**
 
-[![SURAKSHA-NET CI/CD Pipeline](https://github.com/sarthakofficial25-alt/Sankalp-SIH/actions/workflows/ci.yml/badge.svg)](https://github.com/sarthakofficial25-alt/Sankalp-SIH/actions/workflows/ci.yml)
+[![IBVAP CI/CD Pipeline](https://github.com/sarthakofficial25-alt/Sankalp-SIH/actions/workflows/ci.yml/badge.svg)](https://github.com/sarthakofficial25-alt/Sankalp-SIH/actions/workflows/ci.yml)
 
 ---
 
 ## 1. Project Overview
 
-**SURAKSHA-NET** is an intelligent, multi-sensor command and control surveillance platform built for border security forces, defence installations, and high-security restricted perimeters. 
+**IBVAP** is an intelligent, multi-sensor command and control surveillance platform built for border security forces, defence installations, and high-security restricted perimeters. 
 
 It addresses the fundamental limitations of single-modal surveillance (e.g. CCTV optical failure in low-light, camera blind spots, or RF spoofing) by establishing a **Zero-Trust Multi-Modal Correlation Doctrine**:
 1. **Continuous Computer Vision Analytics**: Real-time human detection, kinematic ByteTrack tracking, and biometric facial identification.
@@ -141,9 +141,9 @@ The platform provides pre-configured role presets directly on the login screen:
 
 | Role | Service ID / Username | Passcode | Clearance Level |
 |---|---|---|---|
-| **Commander** (Default) | `IND-CMD-001` | `suraksha2024` | Level 4 / Top Secret |
-| **Security Officer** | `IND-OFF-042` | `suraksha2024` | Level 3 / Operational |
-| **Super Admin** | `IND-ADM-099` | `suraksha2024` | Level 5 / Full Master |
+| **Commander** (Default) | `IND-CMD-001` | `ibvap2024` | Level 4 / Top Secret |
+| **Security Officer** | `IND-OFF-042` | `ibvap2024` | Level 3 / Operational |
+| **Super Admin** | `IND-ADM-099` | `ibvap2024` | Level 5 / Full Master |
 
 ---
 
