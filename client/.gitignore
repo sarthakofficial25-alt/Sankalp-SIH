@@ -12,13 +12,32 @@ dist
 dist-ssr
 *.local
 
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+
+# SSL / TLS / Certificates
+*.pem
+*.key
+*.cert
+*.crt
+*.p12
+*.pfx
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
 .DS_Store
+Thumbs.db
+desktop.ini
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# Testing & Coverage
+coverage/
+.nyc_output/
