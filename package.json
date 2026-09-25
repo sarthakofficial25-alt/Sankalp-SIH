@@ -7,13 +7,18 @@
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
     "dev:client": "cd client && npm run dev",
     "dev:server": "cd server && npm run dev",
-    "build": "cd client && npm run build && cd ../server && npm run build",
+    "build": "npm run build:client && npm run build:server && node -e \"const fs=require('fs'); fs.cpSync('client/dist', 'dist', {recursive: true});\"",
+    "build:client": "cd client && npm run build",
+    "build:server": "cd server && npm run build",
     "test": "cd client && npm run test",
     "lint": "cd client && npm run lint",
     "ci": "npm run lint && npm run test && npm run build",
-    "install:all": "cd client && npm install && cd ../server && npm install"
+    "install:all": "cd client && npm install --include=dev && cd ../server && npm install --include=dev",
+    "postinstall": "npm run install:all"
   },
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "typescript": "^5.5.4"
   }
 }
+
