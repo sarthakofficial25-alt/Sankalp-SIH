@@ -1,3 +1,11 @@
+/**
+ * ============================================================================
+ * DISCLAIMER: ALL DATA IN THIS FILE IS ENTIRELY FICTIONAL AND FOR DEMO ONLY.
+ * Names, service IDs, GPS coordinates, RF frequencies, and all other values
+ * are fabricated. They do NOT correspond to any real military personnel,
+ * installations, or operational data.
+ * ============================================================================
+ */
 import type {
   Camera, Personnel, RFDevice, Zone, Alert, Incident, Detection,
   Sensor, IdentityCorrelation, AuditLog, DashboardStats, SystemHealth,

@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import jwt from 'jsonwebtoken';
 import { config } from './config';
 import { errorHandler } from './middleware/errorHandler';
 
@@ -32,18 +33,26 @@ app.post('/api/auth/login', (req, res) => {
     return res.status(400).json({ success: false, message: 'Missing credentials' });
   }
 
+  const user = {
+    id: 'USR-001',
+    username,
+    name: 'Brig. A. K. Verma',
+    rank: 'Brigadier',
+    role: 'COMMANDER',
+    serviceId: username.toUpperCase(),
+    lastLogin: new Date().toISOString(),
+  };
+
+  const token = jwt.sign(
+    { id: user.id, username: user.username, role: user.role },
+    config.jwtSecret,
+    { expiresIn: config.jwtExpiry }
+  );
+
   res.json({
     success: true,
-    token: 'mock-jwt-token-ibvap-26187',
-    user: {
-      id: 'USR-001',
-      username,
-      name: 'Brig. A. K. Verma',
-      rank: 'Brigadier',
-      role: 'COMMANDER',
-      serviceId: username.toUpperCase(),
-      lastLogin: new Date().toISOString(),
-    },
+    token,
+    user,
     timestamp: new Date().toISOString(),
   });
 });

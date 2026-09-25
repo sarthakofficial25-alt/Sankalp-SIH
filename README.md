@@ -135,15 +135,17 @@ suraksha-net/
 
 ---
 
-## 5. Demo Credentials
+## 5. Authentication & Demo Access
 
-The platform provides pre-configured role presets directly on the login screen:
+The platform supports role-based access with pre-configured role presets on the login screen.
 
-| Role | Service ID / Username | Passcode | Clearance Level |
-|---|---|---|---|
-| **Commander** (Default) | `IND-CMD-001` | `ibvap2024` | Level 4 / Top Secret |
-| **Security Officer** | `IND-OFF-042` | `ibvap2024` | Level 3 / Operational |
-| **Super Admin** | `IND-ADM-099` | `ibvap2024` | Level 5 / Full Master |
+**To configure demo credentials:**
+1. Copy `.env.example` to `.env`
+2. Set `JWT_SECRET` to a strong random value
+3. Configure database credentials as needed
+4. Role presets (Commander, Security Officer) are selectable on the login page
+
+> **Note:** Credentials are managed via environment variables and are never committed to source control. See `.env.example` for the required configuration.
 
 ---
 

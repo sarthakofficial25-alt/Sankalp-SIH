@@ -5,8 +5,8 @@ import { useAuthStore } from '../store/authStore';
 import type { UserRole } from '../types';
 
 export default function Login() {
-  const [serviceId, setServiceId] = useState('IND-CMD-001');
-  const [password, setPassword] = useState('ibvap2024');
+  const [serviceId, setServiceId] = useState('');
+  const [password, setPassword] = useState('');
   const [role, setRole] = useState<UserRole>('COMMANDER');
   const [rememberDevice, setRememberDevice] = useState(true);
   const [error, setError] = useState('');
@@ -15,39 +15,42 @@ export default function Login() {
   const login = useAuthStore(s => s.login);
   const navigate = useNavigate();
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
     setIsLoading(true);
 
-    setTimeout(() => {
-      if (!serviceId || !password) {
-        setError('Please enter valid credentials');
-        setIsLoading(false);
-        return;
-      }
-
-      // Mock Authentication
-      const user = {
-        id: 'USR-001',
-        username: serviceId.toLowerCase(),
-        name: role === 'COMMANDER' ? 'Brig. A. K. Verma' : role === 'SUPER_ADMIN' ? 'Admin Master' : 'Capt. Rajesh Kumar',
-        role,
-        rank: role === 'COMMANDER' ? 'Brigadier' : 'Captain',
-        serviceId,
-        lastLogin: new Date().toISOString(),
-      };
-
-      login(user, 'mock-jwt-token-ibvap-26187');
+    if (!serviceId || !password) {
+      setError('Please enter valid credentials');
       setIsLoading(false);
-      navigate('/dashboard');
-    }, 600);
+      return;
+    }
+
+    try {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+      const response = await fetch(`${apiUrl}/auth/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username: serviceId, password }),
+      });
+      const data = await response.json();
+
+      if (data.success) {
+        login(data.user, data.token);
+        navigate('/dashboard');
+      } else {
+        setError(data.message || 'Authentication failed');
+      }
+    } catch (err) {
+      setError('Unable to connect to server. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleQuickFill = (presetRole: UserRole, id: string) => {
     setRole(presetRole);
     setServiceId(id);
-    setPassword('ibvap2024');
   };
 
   return (
